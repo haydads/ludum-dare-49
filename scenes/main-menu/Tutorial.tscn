@@ -1,0 +1,296 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://assets/interface/fonts/Kenney Future.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/enemies/enemy_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/enemy_4.png" type="Texture" id=3]
+[ext_resource path="res://assets/enemies/enemy_5.png" type="Texture" id=4]
+[ext_resource path="res://assets/enemies/enemy_2.png" type="Texture" id=5]
+[ext_resource path="res://assets/enemies/enemy_3.png" type="Texture" id=6]
+[ext_resource path="res://scenes/interface/MainMenuButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://resources/tilemaps/path_tilemap.tres" type="TileSet" id=8]
+[ext_resource path="res://assets/enemies/enemy_6.png" type="Texture" id=9]
+[ext_resource path="res://assets/towers/tower_4.png" type="Texture" id=10]
+[ext_resource path="res://assets/enemies/enemy_7.png" type="Texture" id=11]
+[ext_resource path="res://resources/fonts/HUD.tres" type="DynamicFont" id=12]
+[ext_resource path="res://assets/towers/tower_2.png" type="Texture" id=13]
+[ext_resource path="res://assets/towers/tower_1.png" type="Texture" id=14]
+[ext_resource path="res://assets/towers/tower_3.png" type="Texture" id=15]
+[ext_resource path="res://assets/tutorial/tutorial_basics.jpg" type="Texture" id=16]
+[ext_resource path="res://assets/towers/tower_7.png" type="Texture" id=17]
+[ext_resource path="res://assets/tutorial/tutorial2.jpg" type="Texture" id=18]
+[ext_resource path="res://scenes/main-menu/Tutorial.gd" type="Script" id=19]
+[ext_resource path="res://assets/interface/icons/back.png" type="Texture" id=20]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="Tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Node2D"]
+tile_set = ExtResource( 8 )
+format = 1
+tile_data = PoolIntArray( -65515, 0, 0, 21, 0, 65536, 65557, 0, 65536, 131093, 0, 65536, 196629, 0, 131073, 196630, 0, 196610, 196631, 0, 196610, 196632, 0, 196610, 196633, 0, 196610, 196634, 0, 3, 262170, 0, 131073, 262171, 0, 3, 327707, 0, 65536, 393243, 0, 65536, 458779, 0, 65536, 589823, 0, 196609, 524288, 0, 196610, 524289, 0, 196610, 524290, 0, 3, 524315, 0, 65536, 589826, 0, 65536, 589851, 0, 65536, 655362, 0, 65536, 655387, 0, 65536, 720898, 0, 65536, 720923, 0, 65536, 786434, 0, 65536, 786459, 0, 65536, 851970, 0, 65536, 851995, 0, 131073, 851996, 0, 196610, 851997, 0, 196610, 851998, 0, 196610, 851999, 0, 196611, 917506, 0, 131073, 917507, 0, 196610, 917508, 0, 196610, 917509, 0, 196610, 917510, 0, 3, 983046, 0, 65536, 983052, 0, 1, 983053, 0, 196610, 983054, 0, 196610, 983055, 0, 196610, 983056, 0, 196610, 983057, 0, 196610, 983058, 0, 196610, 983059, 0, 196610, 983060, 0, 196610, 983061, 0, 3, 1048582, 0, 65536, 1048588, 0, 65536, 1048597, 0, 65536, 1114118, 0, 131073, 1114119, 0, 196610, 1114120, 0, 196610, 1114121, 0, 196610, 1114122, 0, 196610, 1114123, 0, 196610, 1114124, 0, 131075, 1114133, 0, 65536, 1179669, 0, 65536, 1245205, 0, 65536, 1310741, 0, 131072 )
+
+[node name="enemy_1" type="Sprite" parent="Node2D"]
+position = Vector2( 160, 544 )
+texture = ExtResource( 2 )
+
+[node name="enemy_2" type="Sprite" parent="Node2D"]
+position = Vector2( 160, 864 )
+texture = ExtResource( 2 )
+
+[node name="enemy_3" type="Sprite" parent="Node2D"]
+position = Vector2( 160, 768 )
+texture = ExtResource( 5 )
+
+[node name="enemy_4" type="Sprite" parent="Node2D"]
+position = Vector2( 160, 736 )
+texture = ExtResource( 3 )
+
+[node name="enemy_5" type="Sprite" parent="Node2D"]
+position = Vector2( 160, 576 )
+texture = ExtResource( 4 )
+
+[node name="enemy_7" type="Sprite" parent="Node2D"]
+position = Vector2( 32, 544 )
+texture = ExtResource( 11 )
+
+[node name="enemy_6" type="Sprite" parent="Node2D"]
+position = Vector2( 160, 896 )
+texture = ExtResource( 9 )
+
+[node name="enemy_8" type="Sprite" parent="Node2D"]
+position = Vector2( 256, 928 )
+texture = ExtResource( 3 )
+
+[node name="enemy_9" type="Sprite" parent="Node2D"]
+position = Vector2( 288, 928 )
+texture = ExtResource( 5 )
+
+[node name="enemy_10" type="Sprite" parent="Node2D"]
+position = Vector2( 192, 928 )
+texture = ExtResource( 6 )
+
+[node name="enemy_11" type="Sprite" parent="Node2D"]
+position = Vector2( 64, 544 )
+texture = ExtResource( 2 )
+
+[node name="enemy_12" type="Sprite" parent="Node2D"]
+position = Vector2( 416, 928 )
+texture = ExtResource( 4 )
+
+[node name="enemy_13" type="Sprite" parent="Node2D"]
+position = Vector2( 1696, 288 )
+texture = ExtResource( 3 )
+
+[node name="enemy_14" type="Sprite" parent="Node2D"]
+position = Vector2( 1696, 224 )
+texture = ExtResource( 5 )
+
+[node name="enemy_15" type="Sprite" parent="Node2D"]
+position = Vector2( 1696, 256 )
+texture = ExtResource( 2 )
+
+[node name="enemy_16" type="Sprite" parent="Node2D"]
+position = Vector2( 1568, 224 )
+texture = ExtResource( 4 )
+
+[node name="enemy_17" type="Sprite" parent="Node2D"]
+position = Vector2( 1600, 224 )
+texture = ExtResource( 9 )
+
+[node name="enemy_18" type="Sprite" parent="Node2D"]
+position = Vector2( 1472, 224 )
+texture = ExtResource( 11 )
+
+[node name="enemy_19" type="Sprite" parent="Node2D"]
+position = Vector2( 1728, 288 )
+texture = ExtResource( 4 )
+
+[node name="enemy_20" type="Sprite" parent="Node2D"]
+position = Vector2( 1760, 384 )
+texture = ExtResource( 2 )
+
+[node name="enemy_21" type="Sprite" parent="Node2D"]
+position = Vector2( 1760, 352 )
+texture = ExtResource( 6 )
+
+[node name="enemy_22" type="Sprite" parent="Node2D"]
+position = Vector2( 1760, 512 )
+texture = ExtResource( 5 )
+
+[node name="tower_1" type="Sprite" parent="Node2D"]
+position = Vector2( 864, 1056 )
+texture = ExtResource( 14 )
+
+[node name="tower_2" type="Sprite" parent="Node2D"]
+position = Vector2( 736, 1056 )
+rotation = -3.7193
+texture = ExtResource( 14 )
+
+[node name="tower_3" type="Sprite" parent="Node2D"]
+position = Vector2( 1312, 1056 )
+rotation = -2.66512
+texture = ExtResource( 14 )
+
+[node name="tower_4" type="Sprite" parent="Node2D"]
+position = Vector2( 96, 608 )
+rotation = 0.888373
+texture = ExtResource( 10 )
+
+[node name="tower_5" type="Sprite" parent="Node2D"]
+position = Vector2( 352, 1248 )
+rotation = -2.03156
+texture = ExtResource( 15 )
+
+[node name="tower_6" type="Sprite" parent="Node2D"]
+position = Vector2( 352, 1056 )
+rotation = -2.15723
+texture = ExtResource( 13 )
+
+[node name="tower_7" type="Sprite" parent="Node2D"]
+position = Vector2( 1440, 160 )
+rotation = 1.14319
+texture = ExtResource( 17 )
+
+[node name="tower_8" type="Sprite" parent="Node2D"]
+position = Vector2( 1632, 160 )
+rotation = 2.41205
+texture = ExtResource( 13 )
+
+[node name="tower_9" type="Sprite" parent="Node2D"]
+position = Vector2( 1696, 480 )
+rotation = -1.14145
+texture = ExtResource( 14 )
+
+[node name="HowToPlay" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToPlay"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 1280.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 896, 160 )
+custom_fonts/font = SubResource( 1 )
+text = "how to play"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="HowToPlay"]
+margin_left = 256.0
+margin_top = 320.0
+margin_right = 1664.0
+margin_bottom = 736.0
+rect_pivot_offset = Vector2( 896, 160 )
+custom_fonts/font = ExtResource( 12 )
+text = "Volatile TD is similar to most tower defence games
+...except the tower AI seems a little bit \"unstable\"
+towers might suddenly attack ally towers mistaking them for enemies
+
+this instability is easily fixed, but it might make reaching wave 100 pretty tricky..."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="HowToPlay"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 192.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+icon = ExtResource( 20 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewBasics" parent="HowToPlay" instance=ExtResource( 7 )]
+margin_left = 768.0
+margin_top = 832.0
+margin_right = 1152.0
+margin_bottom = 896.0
+text = "VIEW BASICS"
+
+[node name="Basics1" type="Button" parent="."]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="Basics" type="TextureRect" parent="Basics1"]
+margin_right = 1920.0
+margin_bottom = 1280.0
+texture = ExtResource( 16 )
+stretch_mode = 6
+
+[node name="Label3" type="Label" parent="Basics1"]
+margin_right = 1920.0
+margin_bottom = 1280.0
+rect_pivot_offset = Vector2( 896, 160 )
+custom_fonts/font = ExtResource( 12 )
+text = "click anywhere to proceed"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Basics2" type="Button" parent="."]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="Basics2" type="TextureRect" parent="Basics2"]
+margin_right = 1920.0
+margin_bottom = 1280.0
+texture = ExtResource( 18 )
+stretch_mode = 6
+
+[node name="Label4" type="Label" parent="Basics2/Basics2"]
+margin_top = 832.0
+margin_right = 1920.0
+margin_bottom = 1280.0
+rect_pivot_offset = Vector2( 896, 160 )
+custom_fonts/font = ExtResource( 12 )
+text = "click anywhere to proceed"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,242 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://resources/tilemaps/path_tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/map/map2_tile.png" type="Texture" id=2]
+[ext_resource path="res://assets/map/map3_tile.png" type="Texture" id=3]
+[ext_resource path="res://assets/map/map1_tile.png" type="Texture" id=4]
+[ext_resource path="res://resources/fonts/HUD.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/interface/fonts/Kenney Future.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/enemies/enemy_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/enemies/enemy_4.png" type="Texture" id=8]
+[ext_resource path="res://assets/enemies/enemy_5.png" type="Texture" id=9]
+[ext_resource path="res://assets/enemies/enemy_2.png" type="Texture" id=10]
+[ext_resource path="res://assets/enemies/enemy_3.png" type="Texture" id=11]
+[ext_resource path="res://assets/towers/tower_4.png" type="Texture" id=12]
+[ext_resource path="res://assets/enemies/enemy_7.png" type="Texture" id=13]
+[ext_resource path="res://assets/towers/tower_2.png" type="Texture" id=14]
+[ext_resource path="res://assets/towers/tower_1.png" type="Texture" id=15]
+[ext_resource path="res://assets/towers/tower_6.png" type="Texture" id=16]
+[ext_resource path="res://assets/towers/tower_7.png" type="Texture" id=17]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
+
+[node name="MapSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_right = 3.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_right = -3.0
+custom_constants/margin_right = 64
+custom_constants/margin_top = 160
+custom_constants/margin_left = 64
+custom_constants/margin_bottom = 64
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 176.0
+margin_top = 508.0
+margin_right = 1744.0
+margin_bottom = 868.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/separation = 64
+
+[node name="Map1" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_right = 480.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 480, 360 )
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Map1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 320, 240 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map2" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_left = 544.0
+margin_right = 1024.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 480, 360 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Map2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 320, 240 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map3" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_left = 1088.0
+margin_right = 1568.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 480, 360 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Map3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 320, 240 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Node2D"]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -65513, 0, 0, 23, 0, 65536, 65559, 0, 65536, 131095, 0, 131073, 131096, 0, 196610, 131097, 0, 3, 196633, 0, 65536, 262169, 0, 65536, 327705, 0, 131073, 327706, 0, 196610, 327707, 0, 196610, 327708, 0, 196610, 327709, 0, 196610, 327710, 0, 196611, 1048575, 0, 196609, 983040, 0, 196610, 983041, 0, 196610, 983042, 0, 196610, 983043, 0, 196610, 983044, 0, 196610, 983045, 0, 196610, 983046, 0, 196610, 983047, 0, 196610, 983048, 0, 196610, 983049, 0, 196610, 983050, 0, 196610, 983051, 0, 196610, 983052, 0, 3, 1048588, 0, 65536, 1114124, 0, 131073, 1114125, 0, 196610, 1114126, 0, 196610, 1114127, 0, 196610, 1114128, 0, 196610, 1114129, 0, 196610, 1114130, 0, 196610, 1114131, 0, 196610, 1114132, 0, 3, 1179668, 0, 65536, 1245204, 0, 65536, 1310740, 0, 131072 )
+
+[node name="Label4" type="Label" parent="Node2D"]
+margin_left = 189.0
+margin_top = 448.0
+margin_right = 637.0
+margin_bottom = 512.0
+rect_pivot_offset = Vector2( 192, 32 )
+custom_fonts/font = ExtResource( 5 )
+text = "DEFAULT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Node2D"]
+margin_left = 125.0
+margin_top = 64.0
+margin_right = 1341.0
+margin_bottom = 320.0
+rect_pivot_offset = Vector2( 192, 32 )
+custom_fonts/font = SubResource( 1 )
+text = "MAP SELECT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Node2D"]
+margin_left = 701.0
+margin_top = 448.0
+margin_right = 1213.0
+margin_bottom = 512.0
+rect_pivot_offset = Vector2( 192, 32 )
+custom_fonts/font = ExtResource( 5 )
+text = "FIELD"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Node2D"]
+margin_left = 1277.0
+margin_top = 448.0
+margin_right = 1725.0
+margin_bottom = 512.0
+rect_pivot_offset = Vector2( 192, 32 )
+custom_fonts/font = ExtResource( 5 )
+text = "DESERT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tower_7" type="Sprite" parent="Node2D"]
+position = Vector2( 1757, 224 )
+rotation = -5.43845
+texture = ExtResource( 17 )
+
+[node name="tower_2" type="Sprite" parent="Node2D"]
+position = Vector2( 1245, 1184 )
+rotation = -2.53945
+scale = Vector2( 1, 1 )
+texture = ExtResource( 14 )
+
+[node name="tower_4" type="Sprite" parent="Node2D"]
+position = Vector2( 157, 1056 )
+rotation = -0.507891
+texture = ExtResource( 12 )
+
+[node name="tower_1" type="Sprite" parent="Node2D"]
+position = Vector2( 861, 1056 )
+rotation = 0.888373
+texture = ExtResource( 15 )
+
+[node name="tower_6" type="Sprite" parent="Node2D"]
+position = Vector2( 1821, 1184 )
+rotation = -2.91994
+texture = ExtResource( 16 )
+
+[node name="enemy_1" type="Sprite" parent="Node2D"]
+position = Vector2( 1885, 352 )
+texture = ExtResource( 7 )
+
+[node name="enemy_2" type="Sprite" parent="Node2D"]
+position = Vector2( 1725, 352 )
+texture = ExtResource( 10 )
+
+[node name="enemy_5" type="Sprite" parent="Node2D"]
+position = Vector2( 1757, 352 )
+texture = ExtResource( 9 )
+
+[node name="enemy_7" type="Sprite" parent="Node2D"]
+position = Vector2( 1309, 1184 )
+texture = ExtResource( 13 )
+
+[node name="enemy_4" type="Sprite" parent="Node2D"]
+position = Vector2( 1181, 1120 )
+texture = ExtResource( 8 )
+
+[node name="enemy_3" type="Sprite" parent="Node2D"]
+position = Vector2( 925, 1120 )
+texture = ExtResource( 11 )
+
+[node name="enemy_6" type="Sprite" parent="Node2D"]
+position = Vector2( 957, 1120 )
+texture = ExtResource( 10 )
+
+[node name="enemy_8" type="Sprite" parent="Node2D"]
+position = Vector2( 1021, 1120 )
+texture = ExtResource( 7 )
+
+[node name="enemy_9" type="Sprite" parent="Node2D"]
+position = Vector2( 701, 992 )
+texture = ExtResource( 13 )
+
+[node name="enemy_10" type="Sprite" parent="Node2D"]
+position = Vector2( 797, 992 )
+texture = ExtResource( 9 )
+
+[node name="enemy_11" type="Sprite" parent="Node2D"]
+position = Vector2( 797, 1024 )
+texture = ExtResource( 8 )

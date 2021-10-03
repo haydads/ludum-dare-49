@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=43 format=2]
 
-[ext_resource path="res://scenes/maps/TestMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/towers/tower_1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/interface/MainMenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interface/TowerPurchaseButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/towers/tower_2.png" type="Texture" id=3]
 [ext_resource path="res://scenes/GameScene.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Interface.gd" type="Script" id=5]
@@ -11,16 +11,73 @@
 [ext_resource path="res://assets/grid.png" type="Texture" id=9]
 [ext_resource path="res://resources/fonts/HUD.tres" type="DynamicFont" id=10]
 [ext_resource path="res://assets/interface/icons/health.png" type="Texture" id=11]
+[ext_resource path="res://assets/interface/fonts/Kenney Future.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://assets/towers/tower_3.png" type="Texture" id=13]
+[ext_resource path="res://assets/towers/tower_4.png" type="Texture" id=14]
+[ext_resource path="res://assets/towers/tower_5.png" type="Texture" id=15]
+[ext_resource path="res://assets/towers/tower_6.png" type="Texture" id=16]
+[ext_resource path="res://assets/towers/tower_7.png" type="Texture" id=17]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.501961, 0.501961, 0.501961, 0.376471 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 
-[sub_resource type="InputEventAction" id=1]
-action = "game_pause"
-pressed = true
+[sub_resource type="StyleBoxEmpty" id=8]
 
-[sub_resource type="ShortCut" id=2]
-shortcut = SubResource( 1 )
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="StyleBoxEmpty" id=20]
+
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 0.196078, 0.196078, 0.196078 )
+
+[sub_resource type="StyleBoxEmpty" id=34]
+
+[sub_resource type="StyleBoxEmpty" id=35]
+
+[sub_resource type="StyleBoxEmpty" id=36]
+
+[sub_resource type="StyleBoxEmpty" id=37]
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0.501961, 0.501961, 0.501961, 0.376471 )
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource( 4 )
@@ -35,8 +92,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TestMap" parent="." instance=ExtResource( 1 )]
-
 [node name="Interface" type="CanvasLayer" parent="."]
 script = ExtResource( 5 )
 
@@ -47,6 +102,28 @@ mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PauseScreen" type="PanelContainer" parent="Interface/HUD"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Interface/HUD/PauseScreen"]
+margin_right = 1920.0
+margin_bottom = 1280.0
+
+[node name="Label" type="Label" parent="Interface/HUD/PauseScreen/CenterContainer"]
+margin_left = 801.0
+margin_top = 604.0
+margin_right = 1119.0
+margin_bottom = 676.0
+custom_fonts/font = SubResource( 5 )
+text = "Paused"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Interface/HUD"]
 anchor_right = 1.0
@@ -61,15 +138,16 @@ margin_right = 1920.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 6 )
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Interface/HUD/VBoxContainer/PanelContainer"]
 margin_right = 1920.0
 margin_bottom = 64.0
 
 [node name="Money" type="HBoxContainer" parent="Interface/HUD/VBoxContainer/PanelContainer/HBoxContainer3"]
-margin_right = 175.0
+margin_right = 256.0
 margin_bottom = 64.0
+rect_min_size = Vector2( 256, 0 )
 
 [node name="Label" type="Label" parent="Interface/HUD/VBoxContainer/PanelContainer/HBoxContainer3/Money"]
 margin_right = 64.0
@@ -88,28 +166,44 @@ margin_bottom = 52.0
 custom_fonts/font = ExtResource( 10 )
 text = "1000"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Interface/HUD/VBoxContainer/PanelContainer/HBoxContainer3"]
-margin_left = 179.0
-margin_right = 1771.0
+[node name="CenterContainer" type="CenterContainer" parent="Interface/HUD/VBoxContainer/PanelContainer/HBoxContainer3"]
+margin_left = 260.0
+margin_right = 1660.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 
+[node name="Label" type="Label" parent="Interface/HUD/VBoxContainer/PanelContainer/HBoxContainer3/CenterContainer"]
+margin_left = 616.0
+margin_top = 11.0
+margin_right = 784.0
+margin_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 10 )
+text = "Wave 0"
+align = 1
+valign = 1
+
 [node name="Health" type="HBoxContainer" parent="Interface/HUD/VBoxContainer/PanelContainer/HBoxContainer3"]
-margin_left = 1775.0
+margin_left = 1664.0
 margin_right = 1920.0
 margin_bottom = 64.0
+rect_min_size = Vector2( 256, 0 )
+alignment = 2
 
 [node name="Label" type="Label" parent="Interface/HUD/VBoxContainer/PanelContainer/HBoxContainer3/Health"]
+margin_left = 111.0
 margin_top = 11.0
-margin_right = 77.0
+margin_right = 188.0
 margin_bottom = 52.0
 custom_fonts/font = ExtResource( 10 )
 text = "100"
 align = 2
 
 [node name="TextureRect" type="TextureRect" parent="Interface/HUD/VBoxContainer/PanelContainer/HBoxContainer3/Health"]
-margin_left = 81.0
-margin_right = 145.0
+margin_left = 192.0
+margin_right = 256.0
 margin_bottom = 64.0
 texture = ExtResource( 11 )
 stretch_mode = 3
@@ -121,7 +215,7 @@ margin_bottom = 1148.0
 mouse_filter = 2
 size_flags_vertical = 3
 custom_constants/margin_right = 16
-custom_constants/margin_top = 16
+custom_constants/margin_top = 32
 custom_constants/margin_left = 16
 custom_constants/margin_bottom = 16
 __meta__ = {
@@ -130,76 +224,229 @@ __meta__ = {
 
 [node name="Controls" type="HBoxContainer" parent="Interface/HUD/VBoxContainer/MarginContainer2"]
 pause_mode = 2
-margin_left = 1704.0
-margin_top = 16.0
+margin_left = 1746.0
+margin_top = 32.0
 margin_right = 1904.0
-margin_bottom = 80.0
+margin_bottom = 82.0
 size_flags_horizontal = 8
 size_flags_vertical = 2
 
 [node name="Pause" type="Button" parent="Interface/HUD/VBoxContainer/MarginContainer2/Controls"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-shortcut = SubResource( 2 )
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
 icon = ExtResource( 8 )
 flat = true
 
 [node name="Play" type="Button" parent="Interface/HUD/VBoxContainer/MarginContainer2/Controls"]
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
 icon = ExtResource( 6 )
 flat = true
 
 [node name="Fast" type="Button" parent="Interface/HUD/VBoxContainer/MarginContainer2/Controls"]
-margin_left = 136.0
-margin_right = 200.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 19 )
+custom_styles/focus = SubResource( 20 )
+custom_styles/disabled = SubResource( 21 )
+custom_styles/normal = SubResource( 22 )
 icon = ExtResource( 7 )
 flat = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Interface/HUD/VBoxContainer"]
-margin_top = 1152.0
+[node name="IncomingWave" type="CenterContainer" parent="Interface/HUD/VBoxContainer"]
+visible = false
+margin_top = 1084.0
 margin_right = 1920.0
-margin_bottom = 1280.0
-custom_constants/margin_right = 16
-custom_constants/margin_top = 16
-custom_constants/margin_left = 16
-custom_constants/margin_bottom = 16
+margin_bottom = 1148.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Label" type="Label" parent="Interface/HUD/VBoxContainer/IncomingWave"]
+margin_left = 630.0
+margin_top = 11.0
+margin_right = 1290.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 10 )
+text = "Incoming Wave in 5 seconds"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BuildMenu" type="HBoxContainer" parent="Interface/HUD/VBoxContainer/MarginContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="Interface/HUD/VBoxContainer"]
+margin_left = 892.0
+margin_top = 1152.0
+margin_right = 1028.0
+margin_bottom = 1280.0
+rect_min_size = Vector2( 128, 128 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 23 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/HUD/VBoxContainer/PanelContainer2"]
+margin_right = 136.0
+margin_bottom = 128.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 8
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 8
+
+[node name="BuildMenu" type="HBoxContainer" parent="Interface/HUD/VBoxContainer/PanelContainer2/MarginContainer"]
 pause_mode = 1
-margin_left = 856.0
+margin_left = 20.0
 margin_top = 16.0
-margin_right = 1064.0
+margin_right = 116.0
 margin_bottom = 112.0
 size_flags_horizontal = 4
+size_flags_vertical = 4
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tower_1" type="Button" parent="Interface/HUD/VBoxContainer/MarginContainer/BuildMenu" groups=[
-"build_button",
-]]
-margin_right = 96.0
-margin_bottom = 96.0
-rect_min_size = Vector2( 96, 96 )
-icon = ExtResource( 2 )
-expand_icon = true
+[node name="tower_1" parent="Interface/HUD/VBoxContainer/PanelContainer2/MarginContainer/BuildMenu" instance=ExtResource( 2 )]
+type = "tower_1"
 
-[node name="tower_2" type="Button" parent="Interface/HUD/VBoxContainer/MarginContainer/BuildMenu" groups=[
-"build_button",
-]]
+[node name="tower_2" parent="Interface/HUD/VBoxContainer/PanelContainer2/MarginContainer/BuildMenu" instance=ExtResource( 2 )]
+visible = false
 margin_left = 112.0
 margin_right = 208.0
-margin_bottom = 96.0
-rect_min_size = Vector2( 96, 96 )
 icon = ExtResource( 3 )
-expand_icon = true
+type = "tower_2"
+
+[node name="tower_3" parent="Interface/HUD/VBoxContainer/PanelContainer2/MarginContainer/BuildMenu" instance=ExtResource( 2 )]
+visible = false
+margin_left = 224.0
+margin_right = 320.0
+icon = ExtResource( 13 )
+type = "tower_3"
+
+[node name="tower_4" parent="Interface/HUD/VBoxContainer/PanelContainer2/MarginContainer/BuildMenu" instance=ExtResource( 2 )]
+visible = false
+margin_left = 336.0
+margin_right = 432.0
+icon = ExtResource( 14 )
+type = "tower_4"
+
+[node name="tower_5" parent="Interface/HUD/VBoxContainer/PanelContainer2/MarginContainer/BuildMenu" instance=ExtResource( 2 )]
+visible = false
+margin_left = 448.0
+margin_right = 544.0
+icon = ExtResource( 15 )
+type = "tower_5"
+
+[node name="tower_6" parent="Interface/HUD/VBoxContainer/PanelContainer2/MarginContainer/BuildMenu" instance=ExtResource( 2 )]
+visible = false
+margin_left = 560.0
+margin_right = 656.0
+icon = ExtResource( 16 )
+type = "tower_6"
+
+[node name="tower_7" parent="Interface/HUD/VBoxContainer/PanelContainer2/MarginContainer/BuildMenu" instance=ExtResource( 2 )]
+visible = false
+margin_left = 672.0
+margin_right = 768.0
+icon = ExtResource( 17 )
+type = "tower_7"
+
+[node name="GameOverScreen" type="PanelContainer" parent="Interface"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Interface/GameOverScreen"]
+margin_right = 1920.0
+margin_bottom = 1280.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/GameOverScreen/CenterContainer"]
+margin_left = 657.0
+margin_top = 471.0
+margin_right = 1263.0
+margin_bottom = 808.0
+custom_constants/separation = 64
+
+[node name="Label" type="Label" parent="Interface/GameOverScreen/CenterContainer/VBoxContainer"]
+margin_right = 606.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 5 )
+text = "GAME OVER"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Interface/GameOverScreen/CenterContainer/VBoxContainer"]
+margin_top = 136.0
+margin_right = 606.0
+margin_bottom = 177.0
+custom_fonts/font = ExtResource( 10 )
+text = "You  survived to Wave 56"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="Interface/GameOverScreen/CenterContainer/VBoxContainer"]
+margin_left = 111.0
+margin_top = 241.0
+margin_right = 495.0
+margin_bottom = 337.0
+rect_min_size = Vector2( 384, 96 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/hover = SubResource( 34 )
+custom_styles/pressed = SubResource( 35 )
+custom_styles/focus = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
+custom_fonts/font = ExtResource( 10 )
+text = "main menu"
+
+[node name="MenuScreen" type="PanelContainer" parent="Interface"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Interface/MenuScreen"]
+margin_right = 1920.0
+margin_bottom = 1280.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/MenuScreen/CenterContainer"]
+margin_left = 768.0
+margin_top = 568.0
+margin_right = 1152.0
+margin_bottom = 712.0
+custom_constants/separation = 16
+
+[node name="Continue" parent="Interface/MenuScreen/CenterContainer/VBoxContainer" instance=ExtResource( 1 )]
+text = "Continue"
+
+[node name="Restart" parent="Interface/MenuScreen/CenterContainer/VBoxContainer" instance=ExtResource( 1 )]
+visible = false
+margin_top = 80.0
+margin_bottom = 144.0
+text = "Restart"
+
+[node name="Quit" parent="Interface/MenuScreen/CenterContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 80.0
+margin_bottom = 144.0
+text = "Quit"

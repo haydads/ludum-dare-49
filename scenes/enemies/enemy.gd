@@ -2,42 +2,59 @@ extends PathFollow2D
 class_name Enemy
 
 
-signal damage_base(damage)
+signal damage_base(unit, damage)
+signal killed(unit, value)
 
-
-var speed = 150
-var health = 50
-var damage = 5
+var type
+var value = 0.0
+var speed = 0.0
+var health = 0.0
+var damage = 0.0
 var max_health = health
-var show_health = true
+var show_health := false
+var health_timer := 0.0
+
+
+func _ready():
+	speed = GameData.enemy_data[type].speed
+	health = GameData.enemy_data[type].health
+	damage = GameData.enemy_data[type].damage
+	max_health = GameData.enemy_data[type].health
+	value = GameData.enemy_data[type].value
+
 
 func _physics_process(delta):
 	if unit_offset == 1.0:
-		emit_signal("damage_base", damage)
+		emit_signal("damage_base", self, damage)
 		queue_free()
 	move(delta)
-	update()
+	update_health_timer(delta)
+	#update()
+
+
+#func _draw():
+	#pass
+	#if show_health and health > 0:
+		#draw_arc(Vector2.ZERO, 24, deg2rad(0) , deg2rad((360 / max_health) * health), 360, Color(1,1,1,1), 2.0, true)
 
 
 func move(delta):
 	set_offset(get_offset() + speed * delta)
 
 
-func on_hit(damage, killer):
-	health -= damage
+func on_hit(_damage):
+	health -= _damage
+	health_timer = 1.0
+	show_health = true
 	if health <= 0:
-		killer.target = null
-		killer.kills += 1
-		self.queue_free()
+		emit_signal("killed", self, value)
+		queue_free()
 
 
-#func on_destroy():
-	#self.queue_free()
-	
-	
-func _draw():
+func update_health_timer(delta):
 	if show_health:
-	#if health != max_health:
-		draw_arc(Vector2.ZERO, 24, deg2rad(-10) , deg2rad((360 / max_health) * health), health, Color(1,1,1,0.5), 4.0, true)
-	else:
-		draw_arc(Vector2.ZERO, 24, deg2rad(-10) , deg2rad((360 / max_health) * health), health, Color(1,1,1,0.2), 1.0, true)
+		if health_timer <= 0.0:
+			show_health = false
+			health_timer = 1.0
+		else:
+			health_timer -= 1.0 * delta
